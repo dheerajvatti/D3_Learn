@@ -12,6 +12,7 @@ var monthlysales = [
     {"month":6,"sales":600},
     {"month":12,"sales":100},
     ];
+  
 
 
 var svg = d3.select("body").append("svg")
