@@ -32,24 +32,26 @@ svg.selectAll("rect")
 });
 
 
-//Adding LAbels
+//Adding Labels
 svg.selectAll("text")
    .data(dataset)
    .enter()
    .append("text")
    .text(function (d){ 
        return d;
+    }) 
+   //calculate the x position by setting it to the left edge of each bar plus half the bar width
+   .attr("x", function(d, i) {
+        return i * (w / dataset.length) + (w / dataset.length - padding) / 2;
     })
-   .attr("text-anchor","middle")
-   .attr("x",function(d,i){
-       return  i * (w /dataset.length) +(w /dataset.length -padding)/2;
-   })
-   .attr("y",function(d){
-        return h- (d*4);
+   .attr("y", function(d) {
+        return h - (d * 4) + 14;  
     })
-    .attr("font-family","sans-serif")
-    .attr("font-size","10")
-    .attr("fill","black");
+   .attr("font-family", "sans-serif")
+   .attr("font-size", "11px")
+   .attr("fill", "black")
+   .attr("text-anchor", "middle");
+  
  
 
 //-----------------------------using JSON multi value map for attributes --not working -- check it later
